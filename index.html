@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Service</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Email Service</h1>
+        </div>
+        <div class="navbar-compose">
+            <button id="composeButton" class="btn btn-primary">Compose Mail</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <a href="#" id="inboxLink" class="sidebar-link">Inbox</a>
+            <a href="#" id="draftsLink" class="sidebar-link">Drafts</a>
+            <a href="#" id="sentLink" class="sidebar-link">Sent</a>
+            <a href="#" id="primaryLink" class="sidebar-link">Primary</a>
+        </div>
+        <div class="content">
+            <div id="inbox" class="email-section visible">
+                <h2>Inbox</h2>
+                <!-- Emails will be dynamically loaded here -->
+            </div>
+            <div id="drafts" class="email-section hidden">
+                <h2>Drafts</h2>
+                <!-- Drafts will be dynamically loaded here -->
+            </div>
+            <div id="sent" class="email-section hidden">
+                <h2>Sent</h2>
+                <!-- Sent emails will be dynamically loaded here -->
+            </div>
+            <div id="primary" class="email-section hidden">
+                <h2>Primary</h2>
+                <!-- Primary emails will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Compose Mail Modal -->
+    <div id="composeModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Compose New Email</h2>
+            <form id="composeForm">
+                <input type="hidden" id="emailId">
+                <div class="form-group">
+                    <label for="toEmail">To:</label>
+                    <input type="email" id="toEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+                <div id="composeSuccessMessage" class="alert alert-success hidden mt-2">Email sent successfully!</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Draft Modal -->
+    <div id="editDraftModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Edit Draft Email</h2>
+            <form id="editDraftForm">
+                <input type="hidden" id="editDraftId">
+                <div class="form-group">
+                    <label for="editToEmail">To:</label>
+                    <input type="email" id="editToEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="editSubject">Subject:</label>
+                    <input type="text" id="editSubject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="editMessage">Message:</label>
+                    <textarea id="editMessage" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Draft</button>
+                <div id="editDraftSuccessMessage" class="alert alert-success hidden mt-2">Draft saved successfully!</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
